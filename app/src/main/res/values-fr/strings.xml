@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChickenGuard</string>
+    <string name="action_settings">Rafraîchir</string>
+    <string name="sunset_time">Coucher du soleil à</string>
+</resources>
