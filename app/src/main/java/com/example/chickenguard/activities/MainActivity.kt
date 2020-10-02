@@ -1,9 +1,10 @@
-package com.example.chickenguard
+package com.example.chickenguard.activities
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import com.example.chickenguard.R
 
 class MainActivity : AppCompatActivity() {
 

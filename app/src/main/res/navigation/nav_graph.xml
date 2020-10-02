@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/Home"
-        android:name="com.example.chickenguard.Home"
+        android:name="com.example.chickenguard.activities.Home"
         tools:layout="@layout/home" />
 </navigation>

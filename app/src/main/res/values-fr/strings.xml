@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ChickenGuard</string>
     <string name="action_settings">Rafraîchir</string>
     <string name="sunset_time">Coucher du soleil à</string>
+    <string name="api_failure">Une erreur s\'est produite lors de la récupération du coucher de soleil.</string>
 </resources>

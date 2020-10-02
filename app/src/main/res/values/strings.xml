@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">ChickenGuard</string>
+    <string name="app_name" translatable="false">ChickenGuard</string>
     <string name="action_settings">Refresh sunset</string>
 
     <string name="sunset_time">Today sunset is</string>
+    <string name="api_failure">Something went wrong while retrieving sunset hour.</string>
 </resources>
