@@ -20,6 +20,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/warnBeforeLabel"
+        android:layout_width="86dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/warn_before_label"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/warnBeforeTime" />
+
+    <TextView
+        android:id="@+id/warnAfterLabel"
+        android:layout_width="86dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/warn_after_label"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/warnBeforeTime" />
+
+    <TextView
         android:id="@+id/sunsetHour"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -38,11 +64,25 @@
         android:layout_width="342dp"
         android:layout_height="24dp"
         android:layout_marginTop="44dp"
-        android:max="50"
+        android:max="24"
         android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sunsetHour" />
+
+    <TextView
+        android:id="@+id/warnBeforeMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="MIN"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/primaryColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/warnAfterLabel"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toEndOf="@+id/warnBeforeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/warnBeforeTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

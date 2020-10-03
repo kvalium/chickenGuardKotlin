@@ -4,4 +4,8 @@
 
     <string name="sunset_time">Today sunset is</string>
     <string name="api_failure">Something went wrong while retrieving sunset hour.</string>
+    <string name="warn_before_label">warn me</string>
+    <string name="warn_after_label">minutes</string>
+    <string name="channel_name" translatable="false">chickenGuard</string>
+    <string name="channel_desc" translatable="false">chickenGuard plop</string>
 </resources>
