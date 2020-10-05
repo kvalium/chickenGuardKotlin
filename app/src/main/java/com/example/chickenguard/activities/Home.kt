@@ -1,7 +1,6 @@
 package com.example.chickenguard.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,35 +16,17 @@ import com.example.chickenguard.helpers.SunsetHelper
  * Chicken Guard Home
  */
 class Home : Fragment() {
-
-    private lateinit var notificationManager: NotificationManagerCompat
-    val channelId = "Progress Notification"
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationManager = NotificationManagerCompat.from(requireContext())
-
         return inflater.inflate(R.layout.home, container, false)
-        //Create a Notification Manager
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setSunsetHour()
         handleWarnBeforeTimeSeek()
-
-
-        //Creating a notification and setting its various attributes
-        val notification =
-            NotificationCompat.Builder(requireContext(), channelId)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("GeeksforGeeks")
-                .setContentText("Downloading")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-
-        notificationManager.notify(1, notification.build())
     }
 
     private fun handleWarnBeforeTimeSeek() {
@@ -60,12 +41,24 @@ class Home : Fragment() {
 
             override fun onStartTrackingTouch(seek: SeekBar) {}
             override fun onStopTrackingTouch(seek: SeekBar) {
-
-                Log.d("PLOP", "poulet")
-
-
+                sendNotification()
             }
         })
+    }
+
+    private fun sendNotification() {
+        val builder = NotificationCompat.Builder(
+            requireContext(),
+            resources.getString(R.string.notification_channel_id)
+        )
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle(resources.getString(R.string.notification_title))
+            .setContentText(resources.getString(R.string.notification_content))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(1, builder.build())
+        }
     }
 
     private fun setSunsetHour() {

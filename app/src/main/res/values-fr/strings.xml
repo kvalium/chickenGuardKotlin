@@ -5,4 +5,6 @@
     <string name="api_failure">Une erreur s\'est produite lors de la récupération du coucher de soleil.</string>
     <string name="warn_before_label">prévenir</string>
     <string name="warn_after_label">minutes</string>
+    <string name="notification_title">Le soleil se couche !</string>
+    <string name="notification_content">C\'est l\'heure de mettre les poules à l\'abri.</string>
 </resources>

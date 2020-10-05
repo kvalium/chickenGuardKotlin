@@ -7,31 +7,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import com.example.chickenguard.R
 
 class MainActivity : AppCompatActivity() {
-    private val CHANNEL_ID: String = "1234"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
         createNotificationChannel()
-
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("HEY")
-            .setContentText("YOU")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(1, builder.build())
-        }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -53,11 +37,13 @@ class MainActivity : AppCompatActivity() {
     private fun createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
-        val name = getString(R.string.channel_name)
-        val descriptionText = getString(R.string.channel_desc)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-            description = descriptionText
+        val channel = NotificationChannel(
+            resources.getString(R.string.notification_channel_id),
+            resources.getString(R.string.notification_channel_name),
+            importance
+        ).apply {
+            description = resources.getString(R.string.notification_channel_desc)
         }
         // Register the channel with the system
         val notificationManager: NotificationManager =

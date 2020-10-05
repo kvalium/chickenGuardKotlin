@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name" translatable="false">ChickenGuard</string>
+    <string name="channel_name" translatable="false">chickenGuard</string>
+    <string name="channel_desc" translatable="false">chickenGuard plop</string>
+    <string name="notification_channel_name" translatable="false">ChickenGuard</string>
+    <string name="notification_channel_desc" translatable="false">Chicken guard notification</string>
     <string name="action_settings">Refresh sunset</string>
-
     <string name="sunset_time">Today sunset is</string>
     <string name="api_failure">Something went wrong while retrieving sunset hour.</string>
     <string name="warn_before_label">warn me</string>
     <string name="warn_after_label">minutes</string>
-    <string name="channel_name" translatable="false">chickenGuard</string>
-    <string name="channel_desc" translatable="false">chickenGuard plop</string>
+    <string name="notification_channel_id" translatable="false">"1"</string>
+    <string name="notification_title">Sunset is coming!</string>
+    <string name="notification_content">Time to close the chicken hen.</string>
 </resources>
