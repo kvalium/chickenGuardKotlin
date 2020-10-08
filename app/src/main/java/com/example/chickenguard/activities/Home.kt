@@ -45,16 +45,18 @@ class Home : Fragment() {
 
             override fun onStartTrackingTouch(seek: SeekBar) {}
             override fun onStopTrackingTouch(seek: SeekBar) {
-
-                val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-                with(sharedPref.edit()) {
-                    putInt(getString(R.string.saved_warn_before_time), warnBeforeTimeSeek.progress)
-                    apply()
-                }
-
-                // sendNotification()
+                setStoredTime(warnBeforeTimeSeek.progress)
+                sendNotification()
             }
         })
+    }
+
+    private fun setStoredTime(time: Int) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            putInt(getString(R.string.saved_warn_before_time), time)
+            apply()
+        }
     }
 
     private fun getStoredTime(): Int {
