@@ -1,5 +1,6 @@
 package com.example.chickenguard.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +32,10 @@ class Home : Fragment() {
 
     private fun handleWarnBeforeTimeSeek() {
         val warnBeforeTimeSeek = requireView().findViewById<SeekBar>(R.id.warnBeforeTime)
-        setWarnBeforeMinutes(warnBeforeTimeSeek.progress)
+        // init seek and time from stored value
+        warnBeforeTimeSeek.progress = getStoredTime()
+        setWarnBeforeMinutes(getStoredTime())
+
         warnBeforeTimeSeek?.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
 
@@ -41,9 +45,21 @@ class Home : Fragment() {
 
             override fun onStartTrackingTouch(seek: SeekBar) {}
             override fun onStopTrackingTouch(seek: SeekBar) {
-                sendNotification()
+
+                val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+                with(sharedPref.edit()) {
+                    putInt(getString(R.string.saved_warn_before_time), warnBeforeTimeSeek.progress)
+                    apply()
+                }
+
+                // sendNotification()
             }
         })
+    }
+
+    private fun getStoredTime(): Int {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        return sharedPref!!.getInt(getString(R.string.saved_warn_before_time), 0)
     }
 
     private fun sendNotification() {

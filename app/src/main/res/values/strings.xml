@@ -4,6 +4,8 @@
     <string name="channel_desc" translatable="false">chickenGuard plop</string>
     <string name="notification_channel_name" translatable="false">ChickenGuard</string>
     <string name="notification_channel_desc" translatable="false">Chicken guard notification</string>
+    <string name="saved_warn_before_time" translatable="false">warnBeforeTime</string>
+
     <string name="action_settings">Refresh sunset</string>
     <string name="sunset_time">Today sunset is</string>
     <string name="api_failure">Something went wrong while retrieving sunset hour.</string>
